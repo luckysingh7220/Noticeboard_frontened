@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   // Fetch user profile from backend
   const fetchUserProfile = async (token) => {
     try {
-      const res = await fetch("http://localhost:8080/api/auth/me", {
+      const res = await fetch("https://noticeboardbackened-production.up.railway.app/api/auth/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
