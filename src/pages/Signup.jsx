@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../services/api";
+import { motion } from "framer-motion";
 
 export default function Signup() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -21,62 +22,127 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Create an Account
-        </h2>
-
-        {error && (
-          <p className="text-red-500 text-center mb-4 font-medium">{error}</p>
-        )}
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-400"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-400"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-400"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
-          <button
-            className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition"
-            type="submit"
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      {/* Animated container */}
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"
+      >
+        {/* Animated content with stagger */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+        >
+          {/* Title */}
+          <motion.h2
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl font-bold text-center text-gray-800 mb-2"
           >
-            Sign Up
-          </button>
-        </form>
+            Create an Account
+          </motion.h2>
 
-        <p className="text-center text-gray-600 mt-6 text-sm">
-          Already have an account?{" "}
-          <span
-            onClick={() => navigate("/login")}
-            className="text-green-500 hover:underline cursor-pointer"
+          {/* Subtitle */}
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6 }}
+            className="text-gray-500 text-center mb-6"
           >
-            Login
-          </span>
-        </p>
-      </div>
+            Join the community today
+          </motion.p>
+
+          {/* Error */}
+          {error && (
+            <motion.p
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
+              transition={{ duration: 0.4 }}
+              className="text-red-500 text-center mb-4 font-medium"
+            >
+              {error}
+            </motion.p>
+          )}
+
+          {/* Form */}
+          <motion.form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.7 }}
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+            <button
+              className=" bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-lg font-medium shadow-md hover:opacity-90 cursor-pointer"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </motion.form>
+
+          {/* Login link */}
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.7 }}
+            className="text-center text-gray-600 mt-6 text-sm"
+          >
+            Already have an account?{" "}
+            <span
+              onClick={() => navigate("/login")}
+              className="text-blue-500 hover:underline cursor-pointer"
+            >
+              Login
+            </span>
+          </motion.p>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

@@ -190,7 +190,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={() => setRole("admin")}
-                className={`px-4 py-2 rounded-lg border ${
+                className={`cursor-pointer  px-4 py-2 rounded-lg border ${
                   role === "admin"
                     ? "bg-blue-500 text-white"
                     : "bg-white text-gray-700"
@@ -201,7 +201,7 @@ export default function Login() {
               <button
                 type="button"
                 onClick={() => setRole("user")}
-                className={`px-4 py-2 rounded-lg border ${
+                className={`cursor-pointer  px-4 py-2 rounded-lg border ${
                   role === "user"
                     ? "bg-blue-500 text-white"
                     : "bg-white text-gray-700"
@@ -214,7 +214,7 @@ export default function Login() {
             {/* Sign In button */}
             <button
               type="submit"
-              className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-lg font-medium shadow-md hover:opacity-90"
+              className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-lg font-medium shadow-md hover:opacity-90 cursor-pointer "
             >
               Sign In
             </button>
@@ -222,18 +222,22 @@ export default function Login() {
 
           {/* Signup link */}
           <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.7 }}
-            className="text-center text-gray-600 mt-6"
-          >
-            Don’t have an account?{" "}
-            <a href="/signup" className="text-blue-600 font-medium">
-              Sign up here
-            </a>
-          </motion.p>
+  variants={{
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }}
+  transition={{ duration: 0.7 }}
+  className="text-center text-gray-600 mt-6"
+>
+  Don’t have an account?{" "}
+  <span
+    onClick={() => navigate("/signup")}
+    className="text-blue-600 font-medium hover:underline cursor-pointer"
+  >
+    Sign up here
+  </span>
+</motion.p>
+
         </motion.div>
       </motion.div>
     </div>
