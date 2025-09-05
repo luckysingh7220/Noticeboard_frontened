@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "../services/api";
 import NoticeCard from "../components/NoticeCard";
-import { useAuth } from "../context/Authcontext";
+import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
 
 // shadcn/ui components

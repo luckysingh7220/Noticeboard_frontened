@@ -6,7 +6,7 @@ import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Navbar from "./components/Navbar";
-import { useAuth } from "./context/Authcontext";
+import { useAuth } from "./context/AuthContext";
 import NoticeForm from "./components/NoticeForm";
 import NoticeList from "./components/NoticeList";
 import EditNotice from "./pages/EditNotice";
