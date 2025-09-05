@@ -44,7 +44,7 @@ export default function NoticeCard({ notice, onApprove, onReject }) {
               e.stopPropagation();
               onApprove(notice._id);
             }}
-            className="flex-1 px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm"
+            className="cursor-pointer flex-1 px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 text-sm"
           >
             Approve
           </button>
@@ -53,7 +53,7 @@ export default function NoticeCard({ notice, onApprove, onReject }) {
               e.stopPropagation();
               onReject(notice._id);
             }}
-            className="flex-1 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 text-sm"
+            className="cursor-pointer flex-1 px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 text-sm"
           >
             Reject
           </button>
