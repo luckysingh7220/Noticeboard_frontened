@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../services/api";
 import { useAuth } from "../context/AuthContext";
-import { motion } from "framer-motion"; // ✅ Import motion
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [latestNotices, setLatestNotices] = useState([]);
@@ -34,12 +34,10 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-start 
     bg-gradient-to-b from-blue-50 to-white 
     p-6 pt-20 mt-0 md:pt-24">
-
-      {/* Hero Section */}
       <motion.div
-        initial={{ y: -50, opacity: 0 }}      // start above, hidden
-        animate={{ y: 0, opacity: 1 }}        // drop into place
-        transition={{ duration: 0.8, ease: "easeOut" }} // smooth
+        initial={{ y: -50, opacity: 0 }}      
+        animate={{ y: 0, opacity: 1 }}     
+        transition={{ duration: 0.8, ease: "easeOut" }} 
         className="text-center max-w-2xl"
       >
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -65,12 +63,10 @@ export default function Home() {
           </button>
         </div>
       </motion.div>
-
-      {/* Latest Notices Preview */}
       <motion.div
-        initial={{ y: 50, opacity: 0 }}       // start lower, hidden
-        animate={{ y: 0, opacity: 1 }}        // move up into place
-        transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }} // delay for staggered effect
+        initial={{ y: 50, opacity: 0 }}       
+        animate={{ y: 0, opacity: 1 }}       
+        transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }} 
         className="mt-12 w-full max-w-4xl"
       >
         <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
@@ -90,7 +86,7 @@ export default function Home() {
                 className="cursor-pointer group"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 + i * 0.2 }} // staggered cards
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.2 }}
               >
                 <div className="p-6 bg-gradient-to-br from-blue-100 to-indigo-200 
                                 rounded-2xl shadow hover:shadow-xl transition 

@@ -14,7 +14,6 @@ export default function AdminDashboard() {
   const [error, setError] = useState(null);
   const [showUsers, setShowUsers] = useState(false);
 
-  // 🔹 Fetch unapproved notices
   const fetchUnapprovedNotices = async () => {
     try {
       const res = await axios.get("/api/notices/admin/unapproved");
@@ -36,7 +35,7 @@ export default function AdminDashboard() {
       );
       setUnreadCount((prev) => Math.max(prev - 1, 0));
 
-      await fetchUnapprovedNotices(); // ✅ refresh after approve
+      await fetchUnapprovedNotices(); 
     } catch (err) {
       console.error("Approve failed", err);
     }
@@ -54,7 +53,7 @@ export default function AdminDashboard() {
       );
       setUnreadCount((prev) => Math.max(prev - 1, 0));
 
-      await fetchUnapprovedNotices(); // ✅ refresh after reject
+      await fetchUnapprovedNotices(); 
     } catch (err) {
       console.error("Rejection failed", err);
     }
@@ -66,9 +65,6 @@ export default function AdminDashboard() {
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100 pt-15 px-4 gap-6">
-      {/* ---------------- LEFT SIDE ---------------- */}
-
-      {/* Small screens: Show button */}
       <div className="lg:hidden w-full mt-4">
         <button
           onClick={() => setShowUsers(!showUsers)}
@@ -94,7 +90,6 @@ export default function AdminDashboard() {
         )}
       </div>
 
-      {/* Large screens: Show full panel */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
@@ -107,7 +102,6 @@ export default function AdminDashboard() {
         <ShowUsers />
       </motion.div>
 
-      {/* ---------------- RIGHT SIDE ---------------- */}
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
@@ -125,7 +119,7 @@ export default function AdminDashboard() {
           }}
           className="bg-white shadow-md rounded-2xl p-6"
         >
-          {/* Profile Section */}
+          
           <motion.div
             variants={{
               hidden: { opacity: 0, y: -20 },
@@ -148,7 +142,7 @@ export default function AdminDashboard() {
             </div>
           </motion.div>
 
-          {/* Notices Section */}
+    
           <motion.h2
             variants={{
               hidden: { opacity: 0, y: -15 },

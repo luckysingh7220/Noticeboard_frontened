@@ -55,8 +55,6 @@ export default function NotificationsPage() {
     : "bg-gradient-to-r from-indigo-100 to-blue-200 border-blue-300"
               }`}
             >
-              {/* Status badge */}
-    
 
               <div className="flex justify-between items-start">
                 <div className="flex-1 pr-4">

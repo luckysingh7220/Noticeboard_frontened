@@ -18,7 +18,7 @@ export default function NoticeList() {
   const [error, setError] = useState(null);
   const { user } = useAuth();
 
-  // filters
+  
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [status, setStatus] = useState("all");
@@ -37,7 +37,7 @@ export default function NoticeList() {
 
   if (error) return <p className="text-red-500 text-center">{error}</p>;
 
-  // filtering
+ 
   const filteredNotices = notices.filter((n) => {
     const matchesSearch =
       n.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -49,21 +49,20 @@ export default function NoticeList() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 pt-24 px-4 sm:px-6">
-      {/* Container animation */}
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl p-8"
       >
-        {/* Header */}
+      
         <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">
           📢 All Notices
         </h1>
 
-        {/* Filters */}
+     
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-          {/* Search */}
+        
           <div className="flex flex-col flex-1">
             <label className="text-sm font-medium text-gray-600 mb-1">
               Search
@@ -77,7 +76,7 @@ export default function NoticeList() {
             />
           </div>
 
-          {/* Category Filter */}
+          
           <div className="flex flex-col">
             <label className="text-sm font-medium text-gray-600 mb-1">
               Category
@@ -95,7 +94,7 @@ export default function NoticeList() {
             </Select>
           </div>
 
-          {/* Status Filter */}
+       
           <div className="flex flex-col">
             <label className="text-sm font-medium text-gray-600 mb-1">
               Status
@@ -114,7 +113,7 @@ export default function NoticeList() {
           </div>
         </div>
 
-        {/* Notices */}
+
         {filteredNotices.length === 0 ? (
           <p className="text-gray-600 text-center py-10">No notices found</p>
         ) : (
@@ -126,7 +125,7 @@ export default function NoticeList() {
               hidden: {},
               visible: {
                 transition: {
-                  staggerChildren: 0.2, // delay between cards
+                  staggerChildren: 0.2,
                 },
               },
             }}
@@ -134,7 +133,7 @@ export default function NoticeList() {
             {filteredNotices.map((notice, idx) => (
              <motion.div
              key={notice._id}
-             className="min-w-0"  // 🔑 allows content to shrink instead of forcing width
+             className="min-w-0"  
              variants={{
                hidden: { opacity: 0, y: -50 },
                visible: { opacity: 1, y: 0 },

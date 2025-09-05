@@ -26,11 +26,11 @@ export default function UserDashboard() {
     <div className="min-h-screen bg-gray-50 p-6 pt-20 px-6">
       <motion.div
         className="max-w-5xl mx-auto"
-        initial={{ y: -50, opacity: 0 }}   // Start slightly above & hidden
-        animate={{ y: 0, opacity: 1 }}     // Move to normal position & visible
-        transition={{ duration: 0.6, ease: "easeOut" }} // Smooth animation
+        initial={{ y: -50, opacity: 0 }}   
+        animate={{ y: 0, opacity: 1 }}     
+        transition={{ duration: 0.6, ease: "easeOut" }} 
       >
-        {/* Profile Section */}
+        
         <motion.div
           className="bg-white shadow-md rounded-2xl p-6 mb-8 flex items-center gap-6"
           initial={{ y: -30, opacity: 0 }}
@@ -51,8 +51,7 @@ export default function UserDashboard() {
           </div>
         </motion.div>
 
-        {/* Notices Section */}
-{/* Notices Section */}
+    
 <motion.div
   className="bg-white shadow-sm rounded-2xl p-6"
   initial={{ y: -30, opacity: 0 }}
@@ -74,7 +73,7 @@ export default function UserDashboard() {
     </div>
   ) : (
     <motion.div
-      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" // ✅ match NoticeList layout
+      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" 
       initial="hidden"
       animate="visible"
       variants={{
@@ -89,7 +88,7 @@ export default function UserDashboard() {
       {notices.map((notice) => (
         <motion.div
           key={notice._id}
-          className="w-full min-w-0" // ✅ prevents overflow, allows shrinking
+          className="w-full min-w-0" 
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 },

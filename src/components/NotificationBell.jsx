@@ -23,10 +23,8 @@ export default function NotificationBell() {
 
   return (
     <Link to="/notifications" className="relative inline-block">
-    {/* Bell Icon */}
     <Bell className="h-6 w-6 text-white hover:text-gray-300 transition" />
 
-    {/* Notification Badge */}
     {unreadCount > 0 && (
       <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-lg">
         {unreadCount}

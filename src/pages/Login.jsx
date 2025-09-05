@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user"); // default role
+  const [role, setRole] = useState("user"); 
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/login", { email, password, role }); // 👈 send role
+      const res = await axios.post("/api/auth/login", { email, password, role }); 
       login(res.data.token);
 
       if (res.data.role === "admin") navigate("/notices");
@@ -27,14 +27,14 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      {/* Animated container */}
+    
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"
       >
-        {/* Animated content with stagger */}
+        
         <motion.div
           initial="hidden"
           animate="visible"
@@ -42,12 +42,12 @@ export default function Login() {
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.2, // 👈 delay between children
+                staggerChildren: 0.2, 
               },
             },
           }}
         >
-          {/* Logo */}
+          
           <motion.div
             variants={{
               hidden: { opacity: 0, scale: 0.8 },
@@ -122,7 +122,7 @@ export default function Login() {
             </div>
           </motion.div>
 
-          {/* Title */}
+        
           <motion.h2
             variants={{
               hidden: { opacity: 0, y: -20 },
@@ -145,7 +145,7 @@ export default function Login() {
             Please sign in to your account
           </motion.p>
 
-          {/* Error */}
+    
           {error && (
             <motion.p
               variants={{
@@ -159,7 +159,6 @@ export default function Login() {
             </motion.p>
           )}
 
-          {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
             className="flex flex-col gap-4"
@@ -185,7 +184,6 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {/* Role selection */}
             <div className="flex justify-center gap-4">
               <button
                 type="button"
@@ -211,7 +209,6 @@ export default function Login() {
               </button>
             </div>
 
-            {/* Sign In button */}
             <button
               type="submit"
               className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-lg font-medium shadow-md hover:opacity-90 cursor-pointer "
@@ -220,7 +217,7 @@ export default function Login() {
             </button>
           </motion.form>
 
-          {/* Signup link */}
+     
           <motion.p
   variants={{
     hidden: { opacity: 0, y: 20 },

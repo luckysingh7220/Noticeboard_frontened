@@ -30,7 +30,7 @@ export default function Signup() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md"
       >
-        {/* Animated content with stagger */}
+        
         <motion.div
           initial="hidden"
           animate="visible"
@@ -41,7 +41,7 @@ export default function Signup() {
             },
           }}
         >
-          {/* Title */}
+        
           <motion.h2
             variants={{
               hidden: { opacity: 0, y: -20 },
@@ -53,7 +53,7 @@ export default function Signup() {
             Create an Account
           </motion.h2>
 
-          {/* Subtitle */}
+        
           <motion.p
             variants={{
               hidden: { opacity: 0, y: -20 },
@@ -65,7 +65,7 @@ export default function Signup() {
             Join the community today
           </motion.p>
 
-          {/* Error */}
+      
           {error && (
             <motion.p
               variants={{
@@ -79,7 +79,7 @@ export default function Signup() {
             </motion.p>
           )}
 
-          {/* Form */}
+          
           <motion.form
             onSubmit={handleSubmit}
             className="flex flex-col gap-4"
@@ -124,7 +124,7 @@ export default function Signup() {
             </button>
           </motion.form>
 
-          {/* Login link */}
+        
           <motion.p
             variants={{
               hidden: { opacity: 0, y: 20 },

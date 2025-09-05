@@ -33,7 +33,7 @@ export default function SingleNotice() {
           Authorization: `Bearer ${token}`,
         },
       });
-      navigate("/notices"); // Redirect after delete
+      navigate("/notices");
     } catch (err) {
       console.error("Failed to delete notice", err);
       alert("Something went wrong while deleting the notice.");
@@ -99,8 +99,6 @@ export default function SingleNotice() {
           </p>
         )}
       </div>
-
-      {/* 🔹 Admin-only Edit/Delete */}
       {user?.role === "admin" && (
         <div className="mt-6 flex gap-3">
           <button

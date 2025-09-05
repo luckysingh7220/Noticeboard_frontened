@@ -18,13 +18,9 @@ export default function Navbar() {
   return (
     <nav className="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600
       text-white px-6 py-4 flex justify-between items-center shadow-md fixed top-0 left-0 w-full z-50">
-      
-      {/* Logo */}
       <Link to="/" className="text-2xl font-bold text-white hover:text-gray-300">
         🗒️ NoticeBoard
       </Link>
-
-      {/* Desktop Links */}
       <div className="hidden md:flex items-center space-x-6">
         {!user ? (
           <>
@@ -50,16 +46,12 @@ export default function Navbar() {
           </>
         )}
       </div>
-
-      {/* Hamburger Button (visible < md) */}
       <button
   className="md:hidden focus:outline-none cursor-pointer"
   onClick={() => setMenuOpen(true)}
 >
   <Menu size={28} />
 </button>
-
-{/* Right Drawer Menu (shorter + curved) */}
 <div
   className={`fixed top-0 right-0 h-[50vh] w-5/6 max-w-sm
     bg-gradient-to-b from-pink-500 via-purple-600 to-indigo-700
@@ -68,15 +60,12 @@ export default function Navbar() {
     ${menuOpen ? "translate-x-0" : "translate-x-[120%]"}`
   }
 >
-  {/* Header with Close Button */}
   <div className="sticky top-0 bg-white/10 backdrop-blur-sm flex justify-between items-center p-4 rounded-t-2xl border-b border-white/20">
     <h2 className="text-lg font-semibold">Menu</h2>
     <button className="cursor-pointer" onClick={() => setMenuOpen(false)} aria-label="Close menu">
       <X size={24} />
     </button>
   </div>
-
-  {/* Links */}
   <div className="flex flex-col space-y-4 p-6 text-lg">
     {!user ? (
       <>

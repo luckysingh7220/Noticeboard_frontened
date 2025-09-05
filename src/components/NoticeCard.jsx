@@ -11,25 +11,18 @@ export default function NoticeCard({ notice, onApprove, onReject }) {
     className={`relative p-5 rounded-2xl shadow-md border cursor-pointer 
       hover:shadow-xl transition-transform transform hover:-translate-y-1
       bg-gradient-to-br ${getCardGradient(notice.category)}
-      w-full min-w-0`} // 🔑 forces it to shrink with parent
+      w-full min-w-0`}
   >
-  
-      {/* Pin Badge */}
       {notice.pinned && (
         <span className="absolute top-3 right-3 text-lg" title="Pinned">
           📌
         </span>
       )}
-
-      {/* Title */}
       <h2 className="text-xl font-semibold text-gray-800 mb-2 truncate">
         {notice.title}
       </h2>
-
-      {/* Message */}
       <p className="text-gray-700 mb-4 line-clamp-3">{notice.message}</p>
 
-      {/* Category + Date */}
       <div className="flex justify-between items-center text-sm text-gray-500 mb-3">
         <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-white/60">
           {notice.category.toUpperCase()}
@@ -37,14 +30,13 @@ export default function NoticeCard({ notice, onApprove, onReject }) {
         <span>{new Date(notice.createdAt).toLocaleDateString()}</span>
       </div>
 
-      {/* Status */}
+ 
       <div className="text-sm font-medium mb-3">
         {notice.status === "approved" && <span className="text-green-600">✔ Approved</span>}
         {notice.status === "pending" && <span className="text-yellow-600">⏳ Pending</span>}
         {notice.status === "rejected" && <span className="text-red-600">❌ Rejected</span>}
       </div>
 
-      {/* Approve / Reject (Admin Only) */}
       {user?.role === "admin" && notice.status === "pending" && (
         <div className="flex flex-wrap gap-2">
           <button

@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"; // ✅ shadcn import
+} from "@/components/ui/select";
 
 export default function NoticeForm() {
   const navigate = useNavigate();
@@ -89,7 +89,6 @@ export default function NoticeForm() {
           transition={{ duration: 0.5, delay: 0.4 }}
         ></motion.textarea>
 
-        {/* ✅ Shadcn Select */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

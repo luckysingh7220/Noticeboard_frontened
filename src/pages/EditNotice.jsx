@@ -16,7 +16,7 @@ export default function EditNotice() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch notice data
+ 
   useEffect(() => {
     const fetchNotice = async () => {
       try {
